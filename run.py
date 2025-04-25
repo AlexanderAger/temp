@@ -15,7 +15,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu") #Use CUDA 
 
 class Input:
     datafile = 'maze_data_100x100_test.npz'  #Input Mazes
-    dims = 100
+    dims = 99
     input_channels = 2
     num_actions = 4  #8 possible actions (0-7)
     
