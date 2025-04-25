@@ -22,7 +22,7 @@ class Input:
     #Tunable hyperparameters
     lr = 0.0005100157498555241
     epochs = 30
-    k = 1000
+    k = 600
     hidden_channels = 100
     batch_size = 32
     min_planning_steps = 1
