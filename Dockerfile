@@ -10,6 +10,7 @@ RUN pip install matplotlib tqdm pillow
 # First, copy only the requirements to leverage Docker cache
 COPY requirements.txt /app/requirements.txt
 RUN pip install -r requirements.txt
+RUN mkdir -p /pthfiles
 
 # Copy all project files
 COPY VIN.py /app/

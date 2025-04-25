@@ -354,7 +354,7 @@ for epoch in range(input.epochs):
     plot_path_evaluation_metrics(path_success_rates, path_ratios, epoch+1)
     
     # Save checkpoint after each epoch
-    checkpoint_path = f'DT-VIN-31_epoch{epoch+1}.pth'
+    checkpoint_path = f'/pthfiles/DT-VIN-31_epoch{epoch+1}.pth'
     torch.save({
         'epoch': epoch + 1,
         'model_state_dict': net.state_dict(),
@@ -413,7 +413,7 @@ final_success_rate, final_avg_ratio, _ = full_path_evaluation(
 )
 
 # Save final model with all metrics
-final_model_path = 'DT-VIN-15x15-Official_final.pth'
+final_model_path = '/pthfiles/DT-VIN-15x15-Official_final.pth'
 torch.save({
     'model_state_dict': net.state_dict(),
     'optimizer_state_dict': optimizer.state_dict(),
