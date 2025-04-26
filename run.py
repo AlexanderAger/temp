@@ -14,8 +14,8 @@ import matplotlib.colors as mcolors
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu") #Use CUDA if available
 
 class Input:
-    datafile = 'maze_data_100x100_test.npz'  #Input Mazes
-    dims = 99
+    datafile = 'maze_data_35x35_test.npz'  #Input Mazes
+    dims = 35
     input_channels = 2
     num_actions = 4  #8 possible actions (0-7)
     
@@ -26,7 +26,7 @@ class Input:
     hidden_channels = 100
     batch_size = 32
     min_planning_steps = 1
-    highway_connect_freq = 2    
+    highway_connect_freq = 10    
 
 input = Input()
 

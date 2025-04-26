@@ -64,7 +64,7 @@ class MazeTransform(data.Dataset):
             target_actions[index] = maze[2]  # optimal action for next step
             
             #Extract obstacle map and goal map
-            if self.dims == 99:  #16x16 maze dimensions
+            if self.dims == 35:  #16x16 maze dimensions
                 #Obstacle map is 16x16 items starting from index 3
                 obstacle_map = np.array(maze[3:3+self.dims*self.dims]).reshape(self.dims, self.dims)
                 

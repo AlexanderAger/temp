@@ -17,7 +17,7 @@ COPY VIN.py /app/
 COPY run.py /app/
 COPY VIN.py /app/
 COPY dataset.py /app/
-COPY maze_data_100x100_test.npz /app/
+COPY maze_data_35x35_test.npz /app/
 
 
 # Set default command
