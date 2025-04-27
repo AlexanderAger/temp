@@ -20,13 +20,13 @@ class Input:
     num_actions = 4  #8 possible actions (0-7)
     
     #Tunable hyperparameters
-    lr = 0.0001100157498555241
+    lr = 0.0003100157498555241
     epochs = 30
     k = 600
-    hidden_channels = 100
+    hidden_channels = 200
     batch_size = 32
     min_planning_steps = 1
-    highway_connect_freq = 10    
+    highway_connect_freq = 5    
 
 input = Input()
 
