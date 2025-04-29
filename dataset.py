@@ -53,7 +53,7 @@ class MazeTransform(data.Dataset):
         grid_img = np.zeros((data_len, 2, *maze_dims), dtype=np.float32)
         x_coord = np.zeros(data_len, dtype=np.int64)
         y_coord = np.zeros(data_len, dtype=np.int64)
-        target_actions = np.zeros(data_len, dtype=np.int64)
+        target_actions = np.zeros((data_len, self.dims, self.dims), dtype=np.int64)
         path_lengths = np.zeros(data_len, dtype=np.int64)
         
         # For each maze
@@ -61,21 +61,28 @@ class MazeTransform(data.Dataset):
             maze = dataset[index]
             x_coord[index] = maze[0]  # x start coordinate
             y_coord[index] = maze[1]  # y start coordinate
-            target_actions[index] = maze[2]  # optimal action for next step
+            #target_actions[index] = maze[2]  # optimal action for next step
             
             #Extract obstacle map and goal map
-            if self.dims == 35:  #16x16 maze dimensions
+            if self.dims == 49:  #16x16 maze dimensions
                 #Obstacle map is 16x16 items starting from index 3
                 obstacle_map = np.array(maze[3:3+self.dims*self.dims]).reshape(self.dims, self.dims)
                 
                 #Goal map is 16x16 items starting after the obstacle map
-                goal_map_start = 3 + self.dims*self.dims
+                goal_map_start = 2 + self.dims*self.dims
                 goal_map = np.array(maze[goal_map_start:goal_map_start+self.dims*self.dims]).reshape(self.dims, self.dims)
                 
+                #Optimal action map is after the goal map
+                optimal_action_map_start = goal_map_start + self.dims*self.dims
+                optimal_action_map = np.array(maze[optimal_action_map_start:optimal_action_map_start+self.dims*self.dims]).reshape(self.dims, self.dims)
+                target_actions[index] = optimal_action_map
+
                 #Path length is after the goal map
-                path_length_index = goal_map_start + self.dims*self.dims
+                path_length_index = optimal_action_map_start + self.dims*self.dims
                 path_lengths[index] = maze[path_length_index]
-            
+                
+
+
             #Store obstacle and goal maps
             grid_img[index, 0] = obstacle_map
             grid_img[index, 1] = goal_map
