@@ -17,7 +17,7 @@ COPY VIN.py /app/
 COPY run.py /app/
 COPY VIN.py /app/
 COPY dataset.py /app/
-COPY xdt_50.npz /app/
+COPY xdt_50l.npz /app/
 
 
 # Set default command
